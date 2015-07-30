@@ -34,7 +34,7 @@ public:
 			case cmd_open_txt:
         for(t_size i = 0; i < p_data.get_count(); ++i) {
           std::string filepath(p_data.get_item(i)->get_path());
-				  shell_open_with_notepad(filepath + ".txt");
+				  shell_open_with_notepad(get_txt_file_for(filepath));
         }
 				break;
 			default:

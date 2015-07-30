@@ -13,7 +13,7 @@ private:
 	// Playback callback methods.
 	virtual void on_playback_new_track(metadb_handle_ptr p_track) {
     std::string filepath(p_track->get_path());
-    shell_open_with_notepad(filepath + ".txt", true);
+    shell_open_with_notepad(get_txt_file_for(filepath), true);
   }
 
   virtual void on_playback_starting(play_control::t_track_command p_command,bool p_paused) {}  

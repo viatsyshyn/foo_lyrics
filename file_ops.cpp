@@ -9,7 +9,7 @@ public:
   virtual void on_files_deleted_sorted(t_pathlist p_items) {
     for(t_size i = 0; i < p_items.get_count(); ++i) {
       std::string source(p_items.get_item(i));
-      shell_move_file(source, true, std::string("NULL"));
+      shell_move_file(get_txt_file_for(source), true, std::string("NULL"));
     }
   };
   //! p_from is a metadb::path_compare sorted list of files that have been moved, p_to is a list of corresponding target locations.
@@ -17,7 +17,7 @@ public:
     for(t_size i = 0; i < p_from.get_count(); ++i) {
       std::string source(p_from.get_item(i));
       std::string target(p_to.get_item(i));
-      shell_move_file(source, true, target);
+      shell_move_file(get_txt_file_for(source), true, get_txt_file_for(target));
     }
   };
   //! p_from is a metadb::path_compare sorted list of files that have been copied, p_to is a list of corresponding target locations.
@@ -25,7 +25,7 @@ public:
     for(t_size i = 0; i < p_from.get_count(); ++i) {
       std::string source(p_from.get_item(i));
       std::string target(p_to.get_item(i));
-      shell_move_file(source, false, target);
+      shell_move_file(get_txt_file_for(source), false, get_txt_file_for(target));
     }
   };
 
